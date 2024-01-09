@@ -1,24 +1,29 @@
-import {useEffect} from 'react';
-import { useQuery } from 'react-query';
-import { fetchProducts } from './lib/api';
+import { useState } from "react";
+import { Grid } from "@mui/material";
+import MasterView from "./components/MasterView";
+import DetailView from "./components/DetailView";
+import { useQuery } from "react-query";
+import { fetchProducts } from "./lib/api";
+import { Product } from "./types";
 
 function App() {
-  // Use the useQuery hook to fetch products data
+
+    // Fetch products using react-query
   const { data: products, isLoading } = useQuery('products', fetchProducts);
 
-  // log the data out make sure query function works
-  useEffect(() => {
-    if (products) {
-      console.log('Fetched Products:', products);
-    }
-  }, [products]);
+    // define State to track the selected product for detailed view
+  const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
+
+    // Function to handle product click and update the selected product
+  const handleProductClick = (product: Product) => {
+    setSelectedProduct(product);
+  };
 
   return (
-
-        <div>
-          <h1>Hello</h1>
-        </div>
-
+    <Grid container>
+      <MasterView products={products || []} onItemClick={handleProductClick} isLoading={isLoading} />
+      <DetailView product={selectedProduct} />
+    </Grid>
   );
 }
 
