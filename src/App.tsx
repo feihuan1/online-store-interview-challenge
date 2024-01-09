@@ -14,13 +14,13 @@ function App() {
     // define State to track the selected product for detailed view
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
 
-    // Function to handle product click and update the selected product
+  
   const handleProductClick = (product: Product) => {
     setSelectedProduct(product);
   };
 
   return (
-    <Grid container>
+    <Grid container sx={{ maxHeight: '100vh', overflowY: 'hidden' }}>
       <MasterView products={products || []} onItemClick={handleProductClick} isLoading={isLoading} />
       <DetailView product={selectedProduct} />
     </Grid>

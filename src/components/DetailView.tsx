@@ -9,7 +9,6 @@ interface DetailViewProps {
 
 const DetailView: React.FC<DetailViewProps> = ({ product }) => {
 
-
   return (
     <Grid item xs={12} md={8}> 
       {product ? (
@@ -27,7 +26,7 @@ const DetailView: React.FC<DetailViewProps> = ({ product }) => {
             <Typography variant="body2">{`Category: ${product.category}`}</Typography>
             <img
               src={product.image}
-              alt={product.title.toString()}
+              alt={product.title}
               style={{ maxWidth: "100%", height: "auto" }}
             />
           </motion.div>

@@ -1,5 +1,5 @@
 body {
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -10,4 +10,30 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.image-wrapper {
+  padding: 8px;
+  filter: brightness(0.9);
+  background: rgba(255, 255, 255, 0.8);
+  background: white;
+  border-radius: 8px;
+  position: relative;
+  z-index: 1;
+}
+
+.rating {
+  display: flex;
+  gap: 3px;
+  position: absolute;
+  bottom: 24px;
+  left: 24px;
+  background-color: white;
+  padding: 2px 4px;
+  border-radius: 8px;
+  background-color: white;
+  backdrop-filter: none;
+  z-index: 2;
+  align-items: center; 
+  font-size: smaller;
 }
