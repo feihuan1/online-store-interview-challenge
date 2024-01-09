@@ -16,10 +16,9 @@ export default function ProductRating({rate, count, productId}:ProductRatingProp
         margin: "24px 0", 
         display:"flex", 
         flexDirection:"row", 
-        alignItems:"center", 
+        alignItems:"end", 
         justifyContent:"start", 
         gap:"6px", 
-        border:'1px black solid'
       }}
     >
       <Rating name={`half-rating-read-${productId}`} value={rate} precision={0.1} readOnly />

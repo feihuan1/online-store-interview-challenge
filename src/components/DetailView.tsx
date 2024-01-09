@@ -4,13 +4,14 @@ import Box from "@mui/material/Box";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
-import ProductRating from "./ProductRating"
+import ProductRating from "./ProductRating" 
+import NothingDisplay from "./NothingDisplay";
 
 interface DetailViewProps {
   product: Product | null;
 }
 
-const DetailView: React.FC<DetailViewProps> = ({ product }) => {
+const DetailView = ({ product }:DetailViewProps) => {
 
   return (
     <Grid item xs={12} md={8}> 
@@ -91,7 +92,7 @@ const DetailView: React.FC<DetailViewProps> = ({ product }) => {
         
       ) : (
         // If no detailed product data, show message ask user select product to view detail 
-        <Typography variant="h6">Select an item to display</Typography>
+        <NothingDisplay />
       )}
     </Grid>
   );

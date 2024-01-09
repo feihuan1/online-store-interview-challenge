@@ -2,18 +2,18 @@ import { Grid, CircularProgress, List } from "@mui/material";
 import ItemCard from "./ItemCard";
 import { Product } from "../types";
 
-// Define the props type
+
 interface MasterViewProps {
   onItemClick: (product: Product) => void;
   isLoading: boolean;
   products: Product[] | undefined;
 }
 
-const MasterView: React.FC<MasterViewProps> = ({
+const MasterView = ({
   onItemClick,
   isLoading,
   products,
-}) => {
+}: MasterViewProps) => {
   return (
     <Grid
       item

@@ -11,7 +11,7 @@ interface ItemCardProps {
   product: Product;
 }
 
-const ItemCard: React.FC<ItemCardProps> = ({ product, onItemClick }) => {
+const ItemCard = ({ product, onItemClick }: ItemCardProps) => {
   const handleItemClick = () => {
     onItemClick(product);
   };
