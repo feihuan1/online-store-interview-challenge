@@ -80,7 +80,7 @@ const ItemCard: React.FC<ItemCardProps> = ({ product, onItemClick }) => {
             color="text.secondary"
             component="div"
           >
-            {/* nowrap attribute will apply on all Typography, haven't find good solution */}
+            {/* nowrap attribute will apply on all Typography once applied, still looking for better solution */}
             {product.description.slice(0, 22) + "..."}
           </Typography>
           <Typography

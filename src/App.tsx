@@ -9,7 +9,7 @@ import { Product } from "./types";
 function App() {
 
     // Fetch products using react-query
-  const { data: products, isLoading } = useQuery('products', fetchProducts);
+  const { data: products, isLoading } = useQuery('products', fetchProducts); 
 
     // define State to track the selected product for detailed view
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);

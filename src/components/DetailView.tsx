@@ -1,8 +1,11 @@
 import { Grid, Typography } from "@mui/material";
-import { motion } from "framer-motion";
 import { Product } from "../types";
+import Box from "@mui/material/Box";
+import Card from "@mui/material/Card";
+import CardContent from "@mui/material/CardContent";
+import CardMedia from "@mui/material/CardMedia";
+import ProductRating from "./ProductRating"
 
-// Define the props type
 interface DetailViewProps {
   product: Product | null;
 }
@@ -12,25 +15,80 @@ const DetailView: React.FC<DetailViewProps> = ({ product }) => {
   return (
     <Grid item xs={12} md={8}> 
       {product ? (
-        <>
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-          >
-            <Typography variant="h4">{product.title}</Typography>
-            <Typography variant="body1">
-              {product.description}
+        <Card
+        sx={{
+          width: "100%",
+          height: "100%",
+          display: "flex",
+          flexDirection:"column",
+          borderRadius: "8px",
+          padding: "12px",
+          margin: "0 0 16px",
+          "&:hover": {
+            borderColor: "#8e44ad",
+          },
+        }}
+      >
+        <div className="image-wrapper">
+          <CardMedia
+            component="img"
+            sx={{
+              width: "400px", 
+              objectFit: "contain",
+              transform: "scale(0.8)",
+            }}
+            image={product.image}
+            alt="Product cover"
+          />
+        </div>
+  
+        <Box>
+          <CardContent>
+            <Typography
+              color="#8e44ad"
+              component="div"
+              variant="h6"
+              fontSize="1rem"
+              lineHeight="1.2"
+              fontWeight="bold"
+            >
+              {product.category}
             </Typography>
-            <Typography variant="body2">{`Price: $${product.price}`}</Typography>
-            <Typography variant="body2">{`Category: ${product.category}`}</Typography>
-            <img
-              src={product.image}
-              alt={product.title}
-              style={{ maxWidth: "100%", height: "auto" }}
-            />
-          </motion.div>
-        </>
+            <Typography
+              sx={{ marginTop: "8px" }}
+              component="div"
+              variant="h6"
+              fontSize="1.3rem"
+              lineHeight="1.2"
+              fontWeight="bold"
+            >
+              {product.title}
+            </Typography>
+            <Typography
+              sx={{ marginTop: "8px" }}
+              variant="subtitle2"
+              color="text.secondary"
+              component="div"
+            >
+              {product.description}
+            </Typography> 
+
+            <ProductRating rate={product.rating.rate} count={product.rating.count} productId={product.id} />
+
+            <Typography
+              sx={{ marginTop: "8px" }}
+              component="div"
+              variant="h5"
+              fontSize="1rem"
+              lineHeight="1.3"
+              fontWeight="bold"
+            >
+              {"$" + product.price}
+            </Typography>
+          </CardContent>
+        </Box>
+      </Card>
+        
       ) : (
         // If no detailed product data, show message ask user select product to view detail 
         <Typography variant="h6">Select an item to display</Typography>

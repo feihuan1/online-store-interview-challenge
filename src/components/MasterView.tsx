@@ -1,9 +1,5 @@
-import {
-  Grid,
-  CircularProgress,
-  List,
-} from "@mui/material";
-import ItemCard from './ItemCard'
+import { Grid, CircularProgress, List } from "@mui/material";
+import ItemCard from "./ItemCard";
 import { Product } from "../types";
 
 // Define the props type
@@ -41,9 +37,13 @@ const MasterView: React.FC<MasterViewProps> = ({
       {isLoading || !products ? (
         <CircularProgress />
       ) : (
-        <List sx={{padding:"16px"}}>
+        <List sx={{ padding: "16px" }}>
           {products.map((product: Product) => (
-             <ItemCard key={product.id} product={product} onItemClick={onItemClick} />
+            <ItemCard
+              key={product.id}
+              product={product}
+              onItemClick={onItemClick}
+            />
           ))}
         </List>
       )}
