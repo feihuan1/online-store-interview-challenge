@@ -80,14 +80,19 @@ const DetailModal: React.FC<DetailModalProps> = ({
                 sx={{ marginTop: "8px" }}
                 component="div"
                 variant="h6"
-                fontSize="1.3rem"
-                lineHeight="1.2"
+                fontSize="1.2rem"
+                lineHeight="1"
                 fontWeight="bold"
               >
                 {product.title}
               </Typography>
               <Typography
-                sx={{ marginTop: "8px" }}
+                sx={{
+                  marginTop: "8px",
+                  maxHeight: "100px",
+                  overflow: "scroll",
+                  lineHeight: "1",
+                }}
                 variant="subtitle2"
                 color="text.secondary"
                 component="div"

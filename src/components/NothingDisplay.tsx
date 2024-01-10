@@ -9,22 +9,35 @@ export default function NothingDisplay() {
         minWidth: 275,
         height: "100%",
         display: "flex",
-        flexDirection: "column",
         justifyContent: "center",
         alignItems: "center",
         textAlign: "center",
       }}
     >
-      <CardContent>
-        <Typography sx={{ fontSize: 14 }} color="#8e44ad">
+      <CardContent
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <Typography sx={{ fontSize: 16 }} color="#8e44ad">
           Nothing to display...
         </Typography>
 
-        <Typography sx={{ mt: 2.5 }} variant="h5" component="div">
+        <Typography
+          sx={{ mt: 2.5, fontWeight: "600" }}
+          variant="h4"
+          component="div"
+        >
           Select an item to display
         </Typography>
 
-        <Typography sx={{ mt: 2.5, maxWidth: 350 }} color="text.secondary">
+        <Typography
+          sx={{ mt: 2.5, maxWidth: 450, fontSize: "18px" }}
+          color="text.secondary"
+        >
           Select and item from the master view to display details in the detail
           view.
         </Typography>
