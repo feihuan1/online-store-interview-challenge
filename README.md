@@ -1,30 +1,83 @@
-# React + TypeScript + Vite
+# React Online Store Challenge
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Features
 
-Currently, two official plugins are available:
+- View a list of products with basic information.
+- Click on a product to view detailed information.
+- Responsive design for both desktop and mobile.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Demo
 
-## Expanding the ESLint configuration
+[Live Demo](#) *https://online-store-interview-challenge.vercel.app/*
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Installation
 
-- Configure the top-level `parserOptions` property like this:
+1. **Clone the repository:**
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
+    ```bash
+    git clone https://github.com/feihuan1/online-store-interview-challenge.git
+    ```
+
+2. **Navigate to the project directory:**
+
+    ```bash
+    cd react-product-showcase
+    ```
+
+3. **Install dependencies:**
+
+    ```bash
+    npm install
+    ```
+
+## Usage
+
+- **Run the development server:**
+
+    ```bash
+    npm start
+    ```
+
+- **Visit [http://localhost:3000](http://localhost:3000) in your browser to see the application.** 
+
+
+
+## Folder Structure
+
+```plaintext
+react-product-showcase/
+|-- src/
+|   |-- components/
+|   |   |-- MasterView.tsx
+|   |   |-- DetailView.tsx
+|   |   |-- ItemCard.tsx
+|   |   |-- DetailModal.tsx
+|   |   |-- NothingDisplay.tsx
+|   |   |-- ProductRating.tsx
+|   |-- lib/
+|   |   |-- api.ts
+|   |   |-- queryClient.ts
+|   |-- types/
+|   |   |-- index.ts
+|-- main.tsx
+|-- App.tsx
+|-- index.css
+|-- ...
+|-- README.md
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+
+# Contributing
+
+If you'd like to contribute to this project, please follow these steps:
+
+1. Fork the repository.
+2. Create a new branch for your feature or bug fix: `git checkout -b feature-name`.
+3. Make your changes and commit them: `git commit -m 'Add a new feature'`.
+4. Push to the branch: `git push origin feature-name`.
+5. Submit a pull request.
+
+
+## Contact
+
+For any inquiries, please contact [pengfeihuan@gmail.com].
