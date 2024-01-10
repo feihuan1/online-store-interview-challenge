@@ -1,8 +1,10 @@
 import React from "react";
 import { createRoot } from "react-dom/client";
-import App from "./App";
+
 import { QueryClientProvider, queryClient } from "./lib/queryClient";
-import "./index.css"
+
+import App from "./App";
+import "./index.css";
 
 const root = createRoot(document.getElementById("root") as Element);
 

@@ -1,19 +1,21 @@
-import axios from 'axios';
+import axios, { AxiosError } from "axios";
 
-// Function to fetch a list of products
+
 export const fetchProducts = async () => {
-  // Make a GET request to the API endpoint
-  const { data } = await axios.get('https://fakestoreapi.com/products/');
-  
-  // Return the data from the API
-  return data;
-};
+  try {
+    // Make a GET request to the api
+    const { data } = await axios.get("https://fakestoreapi.com/products/");
 
-// Function to fetch details of a specific product based on its ID
-export const fetchProductDetails = async (productId: number) => {
-  // Make a GET request to the API endpoint for the specific product ID
-  const { data } = await axios.get(`https://fakestoreapi.com/products/${productId}`);
-  
-  // Return the data for one item from the API based on item ID
-  return data;
+    // Return the data received from the API
+    return data;
+  } catch (error) {
+    // Handle errors if the API request fails
+    const axiosError = error as AxiosError;
+    
+    // Log the error message 
+    console.error("API Error:", axiosError.message);
+
+    // Throw the AxiosError to indicate that the API request failed
+    throw axiosError;
+  }
 };

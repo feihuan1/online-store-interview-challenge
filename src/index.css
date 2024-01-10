@@ -13,7 +13,6 @@ body {
 }
 
 
-/* -----------------ItemCard---------------- */
 .image-wrapper {
   padding: 8px;
   filter: brightness(0.9);
@@ -21,11 +20,17 @@ body {
   background: white;
   border-radius: 8px;
   position: relative;
-  z-index: 1; 
-  display: flex; 
-  justify-content: center; 
-  align-items: center; 
-  min-height: 60%;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 60%; 
+  max-width: 95%;
+} 
+
+.image-wrapper.modal {
+  max-width: 90%; 
+  min-height: 50%; 
 }
 
 .rating {
@@ -40,6 +45,6 @@ body {
   background-color: white;
   backdrop-filter: none;
   z-index: 2;
-  align-items: center; 
+  align-items: center;
   font-size: smaller;
 }

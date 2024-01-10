@@ -1,7 +1,10 @@
-import { Grid, CircularProgress, List } from "@mui/material";
-import ItemCard from "./ItemCard";
-import { Product } from "../types";
+import React, { useState, useEffect } from "react";
 
+import { Grid, CircularProgress, List } from "@mui/material";
+
+import ItemCard from "./ItemCard";
+import DetailModal from "./DetailModal";
+import { Product } from "../types";
 
 interface MasterViewProps {
   onItemClick: (product: Product) => void;
@@ -9,15 +12,51 @@ interface MasterViewProps {
   products: Product[] | undefined;
 }
 
-const MasterView = ({
+const MasterView: React.FC<MasterViewProps> = ({
   onItemClick,
   isLoading,
   products,
-}: MasterViewProps) => {
+}) => {
+  // State to manage the visibility of detail modals for each product
+  const [openModals, setOpenModals] = useState<{ [key: string]: boolean }>({});
+  // State to track if the current viewport is considered as a mobile device
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 600);
+
+  // Handler to open the detail modal for a specific product
+  const handleOpen = (productId: string) => {
+    setOpenModals((prevOpenModals) => ({
+      ...prevOpenModals,
+      [productId]: true,
+    }));
+  };
+
+  // Handler to close the detail modal for a specific product
+  const handleClose = (productId: string) => {
+    setOpenModals((prevOpenModals) => ({
+      ...prevOpenModals,
+      [productId]: false,
+    }));
+  };
+
+  // Effect to update the isMobile state based on window resize
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 900);
+    };
+
+    // Attach the resize event listener
+    window.addEventListener("resize", handleResize);
+
+    // Detach the resize event listener on component unmount
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
   return (
     <Grid
       item
-      xs={12}
+      xs={0}
       md={4}
       sx={{
         overflowY: "auto",
@@ -39,11 +78,22 @@ const MasterView = ({
       ) : (
         <List sx={{ padding: "16px" }}>
           {products.map((product: Product) => (
-            <ItemCard
-              key={product.id}
-              product={product}
-              onItemClick={onItemClick}
-            />
+            <div key={product.id}>
+              <ItemCard
+                product={product}
+                onItemClick={() => {
+                  onItemClick(product);
+                  handleOpen(product.id.toString());
+                }}
+              />
+              {isMobile && (
+                <DetailModal
+                  product={product}
+                  open={openModals[product.id] || false}
+                  handleClose={() => handleClose(product.id.toString())}
+                />
+              )}
+            </div>
           ))}
         </List>
       )}

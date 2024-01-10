@@ -3,15 +3,17 @@ import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
-import starImage from "../assets/star.png";
+
 import { Product } from "../types";
+
+import starImage from "../assets/star.png";
 
 interface ItemCardProps {
   onItemClick: (product: Product) => void;
   product: Product;
 }
 
-const ItemCard = ({ product, onItemClick }: ItemCardProps) => {
+const ItemCard: React.FC<ItemCardProps> = ({ product, onItemClick }) => {
   const handleItemClick = () => {
     onItemClick(product);
   };
@@ -53,7 +55,14 @@ const ItemCard = ({ product, onItemClick }: ItemCardProps) => {
       </div>
 
       <Box>
-        <CardContent>
+        <CardContent
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "space-between",
+            height: "80%",
+          }}
+        >
           <Typography
             color="#8e44ad"
             component="div"
@@ -65,22 +74,22 @@ const ItemCard = ({ product, onItemClick }: ItemCardProps) => {
             {product.category}
           </Typography>
           <Typography
-            sx={{ marginTop: "8px" }}
+            sx={{ marginTop: "4px" }}
             component="div"
             variant="h6"
-            fontSize="1rem"
-            lineHeight="1.2"
+            fontSize="0.9rem"
+            lineHeight="1"
             fontWeight="bold"
           >
             {product.title}
           </Typography>
           <Typography
-            sx={{ marginTop: "8px" }}
+            sx={{ marginTop: "4px" }}
             variant="subtitle2"
             color="text.secondary"
             component="div"
           >
-            {/* nowrap attribute will apply on all Typography once applied, still looking for better solution */}
+            {/* nowrap attribute will apply on all Typography(including title) once applied, still looking for better solution */}
             {product.description.slice(0, 22) + "..."}
           </Typography>
           <Typography
