@@ -76,7 +76,8 @@ const DetailView: React.FC<DetailViewProps> = ({ product }) => {
                   variant="h6"
                   fontSize="1rem"
                   lineHeight="1.2"
-                  fontWeight="bold"
+                  fontWeight="bold" 
+                  sx={{ textTransform: 'capitalize' }}
                 >
                   {product.category}
                 </Typography>

@@ -69,7 +69,8 @@ const ItemCard: React.FC<ItemCardProps> = ({ product, onItemClick }) => {
             variant="h6"
             fontSize="1rem"
             lineHeight="1.2"
-            fontWeight="bold"
+            fontWeight="bold" 
+            sx={{ textTransform: 'capitalize' }}
           >
             {product.category}
           </Typography>
